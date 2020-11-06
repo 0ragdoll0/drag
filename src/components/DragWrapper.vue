@@ -15,6 +15,11 @@ export default {
     this.$refs['dragEle'].addEventListener('dragover', this.dragOver)
     this.$refs['dragEle'].addEventListener('drop', this.finalDrop)
   },
+  beforeDestroy: function() { 
+    this.$refs['dragEle'].removeEventListener('dragstart', this.dragStart)
+    this.$refs['dragEle'].removeEventListener('dragover', this.dragOver)
+    this.$refs['dragEle'].removeEventListener('drop', this.finalDrop)
+  },
   methods: {
     dragStart(e) {
       console.log('startdrag')
